@@ -1,4 +1,4 @@
-# Real Estate NFT DApp
+# Car Point NFT DApp
 
 ## Technology Stack & Tools
 

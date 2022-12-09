@@ -14,12 +14,12 @@ async function main() {
   // Setup accounts
   const [buyer, seller, inspector, lender] = await ethers.getSigners()
 
-  // Deploy Real Estate
+  // Deploy Car Point
   const CarPoint = await ethers.getContractFactory('CarPoint')
   const carPoint = await CarPoint.deploy()
   await carPoint.deployed()
 
-  console.log(`Deployed Real Estate Contract at: ${carPoint.address}`)
+  console.log(`Deployed Car Point Contract at: ${carPoint.address}`)
   console.log(`Minting 3 properties...\n`)
 
   for (let i = 0; i < 3; i++) {

@@ -13,7 +13,7 @@ describe('Escrow', () => {
         // Setup accounts
         [buyer, seller, inspector, lender] = await ethers.getSigners()
 
-        // Deploy Real Estate
+        // Deploy Car Point
         const CarPoint = await ethers.getContractFactory('CarPoint')
         carPoint = await CarPoint.deploy()
 
