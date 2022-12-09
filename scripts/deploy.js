@@ -5,6 +5,7 @@
 // will compile your contracts, add the Hardhat Runtime Environment's members to the
 // global scope, and execute the script.
 const hre = require("hardhat");
+var jsonData = require('../metadata');
 
 const tokens = (n) => {
   return ethers.utils.parseUnits(n.toString(), 'ether')
@@ -22,10 +23,14 @@ async function main() {
   console.log(`Deployed Car Point Contract at: ${carPoint.address}`)
   console.log(`Minting 3 properties...\n`)
 
-  for (let i = 0; i < 3; i++) {
-    const transaction = await carPoint.connect(seller).mint(`https://ipfs.io/ipfs/QmQVcpsjrA6cr1iJjZAodYwmPekYgbnXGo4DFubJiLc2EB/${i + 1}.json`)
-    await transaction.wait()
-  }
+  
+  const transaction1 = await carPoint.connect(seller).mint(jsonData.json1)
+  await transaction1.wait()
+  const transaction2 = await carPoint.connect(seller).mint(jsonData.json2)
+  await transaction2.wait()
+  const transaction3 = await carPoint.connect(seller).mint(jsonData.json3)
+  await transaction3.wait()
+  
 
   // Deploy Escrow
   const Escrow = await ethers.getContractFactory('Escrow')

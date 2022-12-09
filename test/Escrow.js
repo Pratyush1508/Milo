@@ -18,8 +18,8 @@ describe('Escrow', () => {
         carPoint = await CarPoint.deploy()
 
         // Mint 
-        let transaction = await carPoint.connect(seller).mint("https://ipfs.io/ipfs/QmTudSYeM7mz3PkYEWXWqPjomRPHogcMFSq7XAvsvsgAPS")
-        await transaction.wait()
+        const transaction1 = await carPoint.connect(seller).mint(jsonData.json1)
+        await transaction1.wait()
 
         // Deploy Escrow
         const Escrow = await ethers.getContractFactory('Escrow')
