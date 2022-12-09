@@ -18,8 +18,8 @@ describe('Escrow', () => {
         carPoint = await CarPoint.deploy()
 
         // Mint 
-        const transaction1 = await carPoint.connect(seller).mint(jsonData.json1)
-        await transaction1.wait()
+        let transaction = await carPoint.connect(seller).mint(jsonData.json1)
+        await transaction.wait()
 
         // Deploy Escrow
         const Escrow = await ethers.getContractFactory('Escrow')
